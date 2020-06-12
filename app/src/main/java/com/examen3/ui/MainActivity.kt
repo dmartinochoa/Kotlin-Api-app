@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.examen3.data.model.Face
 import com.examen3.data.repository.local.RoomLocalRepository
 import com.examen3.data.repository.local.UserDatabaseFactory
-import com.examen3.ui.Profile.ProfileActivity
+import com.examen3.ui.profile.ProfileActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -76,9 +76,12 @@ class MainActivity : AppCompatActivity(), MainPresenter.View {
                     nose = noseList.selectedItem.toString(),
                     mouth = mouthList.selectedItem.toString()
                 )
+                val intent = Intent(this, ProfileActivity::class.java).apply {}
+                intent.putExtra("username", usernameText.text.toString())
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Introduce username and name", Toast.LENGTH_SHORT).show()
             }
-            val intent = Intent(this, ProfileActivity::class.java).apply {}
-            startActivity(intent)
         }
     }
 

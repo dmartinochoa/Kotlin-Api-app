@@ -50,6 +50,7 @@ class MainPresenter(private val view: View, private val localRepository: LocalRe
         view.showImage(url)
     }
 
+
     interface View {
         fun showAvatarList(avatarData: Face)
         fun showError(message: String)

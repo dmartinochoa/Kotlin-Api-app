@@ -8,8 +8,8 @@ class RoomLocalRepository(private val userDatabase: UserDatabase) : LocalReposit
         userDatabase.userDao().insertUser(UserEntity(username = username, name = name, url = url))
     }
 
-    override suspend fun getUser(): User {
-        val userEntities = userDatabase.userDao().getUser()
+    override suspend fun getUser(username: String): User {
+        val userEntities = userDatabase.userDao().getUser(username)
         return User(userEntities.id, userEntities.username, userEntities.name, userEntities.url)
     }
 }

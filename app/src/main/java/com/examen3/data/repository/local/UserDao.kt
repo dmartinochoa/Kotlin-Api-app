@@ -9,6 +9,6 @@ interface UserDao {
     @Insert
     suspend fun insertUser(user: UserEntity)
 
-    @Query("SELECT * FROM USERS LIMIT 1 ")
-    suspend fun getUser(): UserEntity
+    @Query("SELECT * FROM USERS WHERE username = :username ")
+    suspend fun getUser(username: String): UserEntity
 }
