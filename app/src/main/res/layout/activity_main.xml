@@ -47,7 +47,8 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/nameLbl"
-        app:layout_constraintTop_toBottomOf="@+id/nameLbl" />
+        app:layout_constraintTop_toBottomOf="@+id/nameLbl"
+        tools:ignore="LabelFor" />
 
     <ImageView
         android:id="@+id/profileImg"
@@ -91,7 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginTop="32dp"
-        android:text="Create"
+        android:text="@string/create"
         app:layout_constraintStart_toEndOf="@+id/profileImg"
         app:layout_constraintTop_toTopOf="@+id/profileImg" />
 

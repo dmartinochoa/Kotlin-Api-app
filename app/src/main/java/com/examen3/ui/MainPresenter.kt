@@ -50,6 +50,18 @@ class MainPresenter(private val view: View, private val localRepository: LocalRe
         view.showImage(url)
     }
 
+    fun getUser(username: String): Boolean {
+        var userExist = false
+        CoroutineScope(Dispatchers.Main).launch {
+            val user = withContext(Dispatchers.IO) {
+                localRepository.getUser(username)
+            }
+            if (user != null){
+                userExist = true
+            }
+        }
+        return userExist
+    }
 
     interface View {
         fun showAvatarList(avatarData: Face)
