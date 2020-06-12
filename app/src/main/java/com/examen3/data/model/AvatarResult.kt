@@ -1,7 +1,6 @@
 package com.examen3.data.model
 import com.google.gson.annotations.SerializedName
 
-
 data class AvatarResult(
     @SerializedName("face")
     val face: Face

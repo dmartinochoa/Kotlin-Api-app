@@ -17,4 +17,14 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <Spinner
+        android:id="@+id/eyeList"
+        android:layout_width="255dp"
+        android:layout_height="49dp"
+        app:layout_constraintBottom_toTopOf="@+id/profileImg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.522" />
 </androidx.constraintlayout.widget.ConstraintLayout>
