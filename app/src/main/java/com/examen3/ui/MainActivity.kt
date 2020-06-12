@@ -1,6 +1,7 @@
 package com.examen3.ui
 
 import android.R
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -8,17 +9,21 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.examen3.data.model.Face
+import com.examen3.data.repository.local.RoomLocalRepository
+import com.examen3.data.repository.local.UserDatabaseFactory
+import com.examen3.ui.Profile.ProfileActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity(), MainPresenter.View {
 
-    private val presenter = MainPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(com.example.examen3.R.layout.activity_main)
+        val localRepository = RoomLocalRepository(UserDatabaseFactory.get(this))
+        val presenter = MainPresenter(this, localRepository)
 
         presenter.init()
 
@@ -62,6 +67,19 @@ class MainActivity : AppCompatActivity(), MainPresenter.View {
             }
         }
 
+        createButton.setOnClickListener() {
+            if (usernameText.text.isNotEmpty() && nameText.text.isNotEmpty()) {
+                presenter.addUser(
+                    username = usernameText.text.toString(),
+                    name = nameText.text.toString(),
+                    eyes = eyeList.selectedItem.toString(),
+                    nose = noseList.selectedItem.toString(),
+                    mouth = mouthList.selectedItem.toString()
+                )
+            }
+            val intent = Intent(this, ProfileActivity::class.java).apply {}
+            startActivity(intent)
+        }
     }
 
     override fun showAvatarList(avatarData: Face) {
