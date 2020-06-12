@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity(), MainPresenter.View {
             }
         }
 
-        createButton.setOnClickListener() {
+        createButton.setOnClickListener {
             if (usernameText.text.isNotEmpty() && nameText.text.isNotEmpty()) {
                 presenter.addUser(
                     username = usernameText.text.toString(),
@@ -89,17 +89,17 @@ class MainActivity : AppCompatActivity(), MainPresenter.View {
         val eyeSpinnerArrayAdapter = ArrayAdapter<String>(
             this, R.layout.simple_spinner_item, avatarData.eyes
         )
-        eyeList.setAdapter(eyeSpinnerArrayAdapter)
+        eyeList.adapter = eyeSpinnerArrayAdapter
 
         val noseSpinnerArrayAdapter = ArrayAdapter<String>(
             this, R.layout.simple_spinner_item, avatarData.nose
         )
-        noseList.setAdapter(noseSpinnerArrayAdapter)
+        noseList.adapter = noseSpinnerArrayAdapter
 
         val mouthSpinnerArrayAdapter = ArrayAdapter<String>(
             this, R.layout.simple_spinner_item, avatarData.mouth
         )
-        mouthList.setAdapter(mouthSpinnerArrayAdapter)
+        mouthList.adapter = mouthSpinnerArrayAdapter
     }
 
     override fun showImage(url: String) {

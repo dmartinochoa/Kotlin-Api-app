@@ -33,9 +33,9 @@ class MainPresenter(private val view: View, private val localRepository: LocalRe
         val noseValue = nose.substring(3)
         val mouthValue = mouth.substring(4)
         val url =
-            "https://api.adorable.io/avatars/face/" + eyesValue + "/" + noseValue + "/" + mouthValue + "/EDEDFF/200"
+            "https://api.adorable.io/avatars/face/$eyesValue/$noseValue/$mouthValue/EDEDFF/200"
         CoroutineScope(Dispatchers.Main).launch {
-            val user = withContext(Dispatchers.IO) {
+            withContext(Dispatchers.IO) {
                 localRepository.insertUser(username, name, url)
             }
         }
@@ -46,7 +46,7 @@ class MainPresenter(private val view: View, private val localRepository: LocalRe
         val noseValue = nose.substring(3)
         val mouthValue = mouth.substring(4)
         val url =
-            "https://api.adorable.io/avatars/face/" + eyesValue + "/" + noseValue + "/" + mouthValue + "/EDEDFF/200"
+            "https://api.adorable.io/avatars/face/$eyesValue/$noseValue/$mouthValue/EDEDFF/200"
         view.showImage(url)
     }
 
