@@ -27,9 +27,18 @@ class MainPresenter(private val view: View) {
         }
     }
 
+    fun loadImage(eyes: String, nose: String, mouth: String) {
+        val eyesValue = eyes.substring(3)
+        val noseValue = nose.substring(3)
+        val mouthValue = mouth.substring(4)
+        val url =
+            "https://api.adorable.io/avatars/face/" + eyesValue + "/" + noseValue + "/" + mouthValue + "/EDEDFF/200"
+        view.showImage(url)
+    }
 
     interface View {
         fun showAvatarList(avatarData: Face)
         fun showError(message: String)
+        fun showImage(url: String)
     }
 }
