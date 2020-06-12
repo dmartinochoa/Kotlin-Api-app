@@ -22,7 +22,7 @@ class ProfileActivity : AppCompatActivity(), ProfilePresenter.View {
     }
 
     override fun showUser(user: User) {
-        loginUser.text = user.Username
+        loginUser.text = user.username
         Picasso.get().load(user.avatarUrl).into(loginAvatar)
     }
 
