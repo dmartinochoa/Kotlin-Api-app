@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Examen3</string>
+    <string name="app_name">Avatar Android</string>
+    <string name="name">Name</string>
+    <string name="username">Username</string>
+    <string name="avatar_image">Avatar Image</string>
+    <string name="create">Create</string>
+    <string name="textview">TextView</string>
 </resources>
